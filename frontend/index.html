@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neo Bank | Smart & Secure Digital Banking</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <div class="tech-grid"></div>
+    <div class="scanline"></div>
+    <div class="blob-bg">
+        <div class="tech-circle circle-1"></div>
+        <div class="tech-circle circle-2"></div>
+    </div>
+
+    <div id="app">
+        <!-- Main Website (Before Login) -->
+        <div id="landing-container" class="landing-wrapper">
+            <nav class="auth-nav">
+                <div class="logo">NEO<span>BANK</span></div>
+                <div class="nav-links">
+                    <a href="#" class="nav-link active" onclick="showLandingView('home')">Home</a>
+                    <a href="#" class="nav-link" onclick="showLandingView('about')">About Us</a>
+                    <a href="#" class="nav-link" onclick="showLandingView('contact')">Contact</a>
+                    <button id="nav-login-btn" class="btn btn-secondary btn-nav-custom" onclick="showLandingView('login')">Sign In</button>
+                </div>
+            </nav>
+
+            <!-- Home Page View -->
+            <div id="landing-home" class="landing-view">
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <span class="badge">Next-Gen Banking</span>
+                        <h1>Smart & Secure <br><span>Digital Banking</span></h1>
+                        <p>Experience the future of finance. Manage assets, track spending, and grow your wealth with NEO BANK.</p>
+                        <div class="hero-btns">
+                            <button class="btn btn-primary" onclick="showLandingView('register')">Open Account</button>
+                            <button class="btn btn-secondary" onclick="showLandingView('about')">Learn More</button>
+                        </div>
+                    <div class="hero-features">
+                        <div class="h-feat">
+                            <div class="h-icon"><i data-feather="zap"></i></div>
+                            <span>Fast Transfer</span>
+                        </div>
+                        <div class="h-feat">
+                            <div class="h-icon"><i data-feather="shield"></i></div>
+                            <span>Secure</span>
+                        </div>
+                        <div class="h-feat">
+                            <div class="h-icon"><i data-feather="globe"></i></div>
+                            <span>24/7 Access</span>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="phone-mockup">
+                            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=1000" alt="App Preview">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Us View -->
+            <div id="landing-about" class="landing-view hidden">
+                <div class="about-section">
+                    <div class="section-header">
+                        <span class="badge">Our Story</span>
+                        <h2>About <span>NEO BANK</span></h2>
+                        <p>We're not just a bank; we're a technology company that's reimagining how you interact with your money.</p>
+                    </div>
+                    <div class="about-grid">
+                        <div class="card about-card">
+                            <div class="card-icon"><i data-feather="target"></i></div>
+                            <h3>Our Mission</h3>
+                            <p>To provide accessible, secure, and lightning-fast financial services to everyone, everywhere through innovation.</p>
+                        </div>
+                        <div class="card about-card">
+                            <div class="card-icon"><i data-feather="eye"></i></div>
+                            <h3>Our Vision</h3>
+                            <p>To become the world's most trusted digital banking platform, empowering users to take control of their financial future.</p>
+                        </div>
+                        <div class="card about-card">
+                            <div class="card-icon"><i data-feather="award"></i></div>
+                            <h3>Why Choose Us?</h3>
+                            <p>We combine cutting-edge technology with user-centric design to make banking simple, transparent, and rewarding.</p>
+                        </div>
+                    </div>
+                    <div class="about-footer">
+                        <button class="btn btn-primary" onclick="showLandingView('register')">Get Started Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact View -->
+            <div id="landing-contact" class="landing-view hidden">
+                <div class="contact-section">
+                    <div class="contact-info">
+                        <span class="badge">Support</span>
+                        <h2>Get in <span>Touch</span></h2>
+                        <p>Have questions or need assistance? Our team is available 24/7 to help you navigate your financial journey.</p>
+                        <div class="info-list">
+                            <div class="info-item">
+                                <span class="info-icon"><i data-feather="map-pin"></i></span>
+                                <div>
+                                    <h4>Address</h4>
+                                    <p>123 Digital Ave, Fintech City</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon"><i data-feather="phone"></i></span>
+                                <div>
+                                    <h4>Phone Number</h4>
+                                    <p>+1-800-NEO-BANK</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon"><i data-feather="mail"></i></span>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p>support@neobank.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form-card card">
+                        <h3>Send a Message</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 25px;">Fill out the form below and we'll get back to you within 24 hours.</p>
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" id="contact-name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="contact-email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Message</label>
+                                <textarea id="contact-message" placeholder="How can we help?" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Login View -->
+            <div id="login-page" class="landing-view hidden">
+                <div class="auth-layout">
+                    <div class="auth-info">
+                        <span class="badge">Welcome Back</span>
+                        <h2>Secure <span>Access</span> to Your Wealth</h2>
+                        <p>Experience the next generation of digital banking. Secure, fast, and always accessible.</p>
+                        <div class="hero-features" style="margin-top: 40px;">
+                            <div class="h-feat">
+                                <div class="h-icon"><i data-feather="shield"></i></div>
+                                <span>Biometric Security</span>
+                            </div>
+                            <div class="h-feat">
+                                <div class="h-icon"><i data-feather="globe"></i></div>
+                                <span>Global Access</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="auth-card">
+                        <h3>Login</h3>
+                        <p style="color: var(--text-secondary);">Enter your credentials to access your dashboard.</p>
+                        <form id="login-form">
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" id="login-email" placeholder="email@example.com" required>
+                            </div>
+                            <div class="form-group password-group">
+                                <label>Password</label>
+                                <input type="password" id="login-password" placeholder="••••••••" required>
+                                <div class="form-check show-password-toggle">
+                                    <input type="checkbox" id="show-password-login">
+                                    <label for="show-password-login">Show Password</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="g-recaptcha" data-sitekey="6Ld8_dYsAAAAAB6gejbsIXkj5xCByxnaYRbU-NYb" data-theme="dark"></div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">Login to Dashboard</button>
+                        </form>
+                        <div class="auth-footer-text">
+                            Don't have an account? <a href="#" onclick="showLandingView('register')">Create one now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Register View -->
+            <div id="register-page" class="landing-view hidden">
+                <div class="auth-layout">
+                    <div class="auth-info">
+                        <span class="badge">Start Journey</span>
+                        <h2>Join the <span>Future</span> of Banking</h2>
+                        <p>Create your NEO BANK account in less than 2 minutes and join thousands of users worldwide.</p>
+                        <div class="hero-features" style="margin-top: 40px;">
+                            <div class="h-feat">
+                                <div class="h-icon"><i data-feather="clock"></i></div>
+                                <span>2-Min Signup</span>
+                            </div>
+                            <div class="h-feat">
+                                <div class="h-icon"><i data-feather="gift"></i></div>
+                                <span>Zero Fees</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="auth-card">
+                        <h3>Create Account</h3>
+                        <p style="color: var(--text-secondary);">Fill in your details to get started.</p>
+                        <form id="register-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input type="text" id="register-fname" placeholder="Rose" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input type="text" id="register-lname" placeholder="Cabida" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <div class="otp-input-wrapper" style="display: flex; gap: 10px;">
+                                    <input type="email" id="register-email" placeholder="rosecabida@gmail.com" style="flex: 1;" required>
+                                    <button type="button" id="send-otp-btn" class="btn btn-secondary" style="white-space: nowrap; padding: 0 15px;">Send OTP</button>
+                                </div>
+                            </div>
+                            <div class="form-group" id="otp-field-container">
+                                <label>Verification Code (OTP)</label>
+                                <input type="text" id="register-otp" placeholder="Enter 6-digit code" maxlength="6" required>
+                                <small style="color: var(--text-secondary); margin-top: 5px; display: block;">Check your email for the OTP code.</small>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" id="register-phone" placeholder="09123456789" pattern="[0-9]*" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                            </div>
+                            <div class="form-group password-group">
+                                <label>Password</label>
+                                <input type="password" id="register-password" placeholder="••••••••" required>
+                                <div class="form-check show-password-toggle">
+                                    <input type="checkbox" id="show-password-register">
+                                    <label for="show-password-register">Show Password</label>
+                                </div>
+                            </div>
+                            <div class="form-group password-group">
+                                <label>Confirm Password</label>
+                                <input type="password" id="register-confirm-password" placeholder="••••••••" required>
+                                <div class="form-check show-password-toggle">
+                                    <input type="checkbox" id="show-password-register-confirm">
+                                    <label for="show-password-register-confirm">Show Password</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="g-recaptcha" data-sitekey="6Ld8_dYsAAAAAB6gejbsIXkj5xCByxnaYRbU-NYb" data-theme="dark"></div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">Create Free Account</button>
+                        </form>
+                        <div class="auth-footer-text">
+                            Already have an account? <a href="#" onclick="showLandingView('login')">Login here</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Dashboard Layout -->
+        <div id="user-dashboard-page" class="dashboard-layout hidden">
+            <aside class="sidebar user-sidebar">
+                <div class="sidebar-logo">NEO<span>BANK</span></div>
+                <nav class="sidebar-nav">
+                    <a href="#" class="nav-item active" data-page="home">
+                        <i data-feather="home"></i>
+                        <span>Home</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="accounts">
+                        <i data-feather="credit-card"></i>
+                        <span>Accounts</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="payments">
+                        <i data-feather="send"></i>
+                        <span>Payments</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="cards">
+                        <i data-feather="layers"></i>
+                        <span>Cards</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="invest">
+                        <i data-feather="trending-up"></i>
+                        <span>Invest</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="savings">
+                        <i data-feather="target"></i>
+                        <span>Savings Goal</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="activity">
+                        <i data-feather="clock"></i>
+                        <span>Recent Activity</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="support">
+                        <i data-feather="help-circle"></i>
+                        <span>Support</span>
+                    </a>
+                </nav>
+                <div class="sidebar-footer">
+                    <a href="#" class="nav-item logout-nav" id="logout-btn-sidebar">
+                        <i data-feather="log-out"></i>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </aside>
+            
+            <main class="main-content">
+                <header class="top-bar">
+                    <div class="top-bar-left">
+                        <div class="welcome-text">
+                            <h1 id="welcome-msg">Welcome back!</h1>
+                            <p id="current-date-display-user">Today is Sunday, April 26</p>
+                        </div>
+                    </div>
+                    
+                    <div class="top-bar-right">
+                        <div class="top-actions">
+                            <div class="notification-wrapper">
+                                <button class="btn-icon notification-btn">
+                                    <i data-feather="bell"></i>
+                                    <span class="notification-indicator"></span>
+                                </button>
+                                <div class="notification-dropdown glass-dropdown">
+                                    <div class="dropdown-header">Notifications</div>
+                                    <div class="dropdown-content">
+                                        <p class="empty-msg">No new notifications</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="profile-container">
+                                <div class="profile-trigger" id="profile-btn-user">
+                                    <div class="avatar-mini">U</div>
+                                    <div class="user-info-mini">
+                                        <span class="u-name" id="user-name-display">Premium User</span>
+                                        <span class="u-role">Premium Member</span>
+                                    </div>
+                                    <i data-feather="chevron-down"></i>
+                                </div>
+                                <div class="profile-dropdown glass-dropdown">
+                                    <a href="#" class="dropdown-item" onclick="switchView('profile')">
+                                        <i data-feather="user"></i> Profile Settings
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="#" class="dropdown-item logout-item" id="dropdown-logout-user">
+                                        <i data-feather="log-out"></i> Logout
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- User Views -->
+                <div id="dashboard-home-view" class="view-section">
+                    <!-- ... existing home view content ... -->
+                    <div class="dashboard-grid">
+                        <!-- Main Column -->
+                        <div class="dash-main-col">
+                            <div class="premium-balance-card">
+                                <div class="balance-top">
+                                    <div class="balance-label">Total Available Balance</div>
+                                    <div class="currency-tag">PHP</div>
+                                </div>
+                                <h1 id="acc-primary-balance-display">₱0.00</h1>
+                                <div class="balance-bottom">
+                                    <div class="acc-number">Acc No: **** 5678</div>
+                                    <div class="acc-status">Active</div>
+                                </div>
+                            </div>
+
+                            <div class="quick-actions-section">
+                                <h3>Quick Actions</h3>
+                                <div class="actions-flex">
+                                    <button class="action-card quick-action" data-action="transfer">
+                                        <div class="action-icon-circle">💸</div>
+                                        <span>Send Money</span>
+                                    </button>
+                                    <button class="action-card quick-action" data-action="pay-bill">
+                                        <div class="action-icon-circle">📄</div>
+                                        <span>Pay Bills</span>
+                                    </button>
+                                    <button class="action-card quick-action" data-action="deposit">
+                                        <div class="action-icon-circle">📥</div>
+                                        <span>Deposit</span>
+                                    </button>
+                                    <button class="action-card quick-action" data-action="withdraw">
+                                        <div class="action-icon-circle">📤</div>
+                                        <span>Withdraw</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="recent-activity-section">
+                                <div class="section-header-flex">
+                                    <h3>Recent Activity</h3>
+                                    <button class="btn-text" onclick="switchView('accounts')">View All</button>
+                                </div>
+                                <div id="transaction-list-home" class="activity-list">
+                                    <!-- Dynamic -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sidebar Column -->
+                        <div class="dash-side-col">
+                            <div class="mini-card-container">
+                                <h3>Your Cards</h3>
+                                <div class="virtual-card-mini">
+                                    <div class="v-card-top">
+                                        <div class="v-logo">NEO<span>BANK</span></div>
+                                        <div class="v-chip"></div>
+                                    </div>
+                                    <div class="v-card-mid">
+                                        <div class="v-number">**** **** **** 1234</div>
+                                    </div>
+                                    <div class="v-card-btm">
+                                        <div class="v-holder" id="user-name-card">USER</div>
+                                        <div class="v-exp">12/28</div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-secondary btn-full" onclick="switchView('cards')">Manage Cards</button>
+                            </div>
+
+                            <div class="savings-goal-card">
+                                <h3>Savings Goal</h3>
+                                <div class="goal-info">
+                                    <span>New Car Fund</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="progress-container">
+                                    <div class="progress-bar" style="width: 75%;"></div>
+                                </div>
+                                <p class="goal-meta">₱150,000 / ₱200,000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROFILE VIEW -->
+                <div id="dashboard-profile-view" class="view-section hidden">
+                    <div class="card profile-card">
+                        <div class="section-header">
+                            <h3>Update Profile</h3>
+                            <p>Manage your personal information</p>
+                        </div>
+                        <form id="profile-form" class="profile-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input type="text" id="profile-fname" placeholder="First Name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input type="text" id="profile-lname" placeholder="Last Name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" id="profile-email" placeholder="Email Address" disabled>
+                            </div>
+                            <div class="form-group password-group">
+                                <label>New Password (leave blank to keep current)</label>
+                                <input type="password" id="profile-password" placeholder="New Password">
+                                <div class="form-check show-password-toggle">
+                                    <input type="checkbox" id="show-password-profile">
+                                    <label for="show-password-profile">Show Password</label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="dashboard-accounts-view" class="view-section hidden">
+                    <div class="card accounts-card">
+                        <div class="section-header">
+                            <h3>🏦 Interactive Accounts</h3>
+                            <p>Swipe through your accounts with premium gradient designs.</p>
+                        </div>
+                        <div class="accounts-slider">
+                            <div class="account-card premium-gold">
+                                <div class="acc-badge">Primary</div>
+                                <div class="acc-main">
+                                    <h4>Savings Account</h4>
+                                    <p>Acc No: **** 5678</p>
+                                    <h2 id="acc-primary-balance-large">₱0.00</h2>
+                                </div>
+                                <div class="acc-footer">
+                                    <span>Active Account</span>
+                                    <button class="btn btn-text" onclick="switchView('activity')">View History</button>
+                                </div>
+                            </div>
+                            <div class="account-card premium-green">
+                                <div class="acc-badge">Secondary</div>
+                                <div class="acc-main">
+                                    <h4>Checking Account</h4>
+                                    <p>Acc No: **** 9012</p>
+                                    <h2>₱15,250.00</h2>
+                                </div>
+                                <div class="acc-footer">
+                                    <span>Active Account</span>
+                                    <button class="btn btn-text" onclick="switchView('activity')">View History</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card history-card full-width">
+                        <div class="section-header">
+                            <h3>Transaction History</h3>
+                            <p>Full breakdown of your account movements</p>
+                        </div>
+                        <div id="transaction-list-full-accounts" class="activity-list">
+                            <!-- Dynamic -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="dashboard-payments-view" class="view-section hidden">
+                    <div class="card payments-card-premium">
+                        <div class="view-header-premium">
+                            <div class="header-info">
+                                <h2>Smart Payments</h2>
+                                <p>Manage your bills and transfers with ease</p>
+                            </div>
+                            <button class="btn btn-primary" onclick="validateUserAction('pay-bill')">
+                                <i data-feather="plus"></i> New Payment
+                            </button>
+                        </div>
+                        
+                        <div class="payments-content-grid">
+                            <div class="payments-left-col">
+                                <div class="premium-sub-section">
+                                    <h3>Recent Billers</h3>
+                                    <div class="billers-scroll-grid">
+                                        <div class="biller-card-premium" onclick="repeatPayment('Meralco')">
+                                            <div class="biller-icon meralco"><i data-feather="zap"></i></div>
+                                            <span>Meralco</span>
+                                        </div>
+                                        <div class="biller-card-premium" onclick="repeatPayment('Maynilad')">
+                                            <div class="biller-icon water"><i data-feather="droplet"></i></div>
+                                            <span>Maynilad</span>
+                                        </div>
+                                        <div class="biller-card-premium" onclick="repeatPayment('PLDT')">
+                                            <div class="biller-icon telco"><i data-feather="wifi"></i></div>
+                                            <span>PLDT</span>
+                                        </div>
+                                        <div class="biller-card-premium" onclick="repeatPayment('Globe')">
+                                            <div class="biller-icon telco"><i data-feather="phone"></i></div>
+                                            <span>Globe</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="premium-sub-section">
+                                    <h3>Quick Transfers</h3>
+                                    <div class="quick-transfer-list">
+                                        <button class="btn btn-glass-premium" onclick="validateUserAction('transfer')">
+                                            <i data-feather="send"></i> Transfer
+                                        </button>
+                                        <button class="btn btn-glass-premium" onclick="validateUserAction('withdraw')">
+                                            <i data-feather="download"></i> Withdraw Funds
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="payments-right-col">
+                                <div class="premium-sub-section">
+                                    <div class="section-header-row">
+                                        <h3>Payment History</h3>
+                                        <button class="btn-text-premium" onclick="switchView('activity')">See All</button>
+                                    </div>
+                                    <div id="payment-history-list-premium" class="premium-history-list">
+                                        <!-- Dynamic items -->
+                                        <div class="empty-state-mini">
+                                            <i data-feather="clock"></i>
+                                            <p>No recent payments</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="dashboard-cards-view" class="view-section hidden">
+                    <div class="card v-card-section">
+                        <!-- Request Card State -->
+                        <div class="request-card-section">
+                            <div class="section-header">
+                                <h3>💳 Virtual Card Request</h3>
+                                <p>You don't have an active virtual card. Request one now to start secure online payments.</p>
+                            </div>
+                            <div class="request-hero">
+                                <div class="v-card-container dummy-card">
+                                    <div class="v-card-inner-wrapper">
+                                        <div class="v-card-front">
+                                            <div class="v-card-logo">NEO<span>BANK</span></div>
+                                            <div class="v-card-chip"></div>
+                                            <div class="v-card-number">**** **** **** ****</div>
+                                            <div class="v-card-footer">
+                                                <div class="v-card-holder">
+                                                    <span>CARD HOLDER</span>
+                                                    <h4>YOUR NAME</h4>
+                                                </div>
+                                                <div class="v-card-exp">
+                                                    <span>EXP</span>
+                                                    <h4>--/--</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button id="request-card-btn" class="btn btn-primary btn-lg" style="margin: 20px auto; display: block; padding: 15px 40px;">Request Virtual Card</button>
+                            </div>
+                        </div>
+
+                        <!-- Active Card State -->
+                        <div class="active-card-section hidden">
+                            <div class="section-header">
+                                <h3>💳 Advanced Card Control</h3>
+                                <p>Manage your virtual card with realistic 3D interaction.</p>
+                            </div>
+                            
+                            <div class="v-card-container" onclick="this.classList.toggle('flipped')">
+                                <div class="v-card-inner-wrapper">
+                                    <!-- Front -->
+                                    <div class="v-card-front">
+                                        <div class="v-card-logo">NEO<span>BANK</span></div>
+                                        <div class="v-card-chip"></div>
+                                        <div class="v-card-number" id="v-card-num-display">**** **** **** 8888</div>
+                                        <div class="v-card-footer">
+                                            <div class="v-card-holder">
+                                                <span>CARD HOLDER</span>
+                                                <h4 id="v-card-holder-name">GERALD</h4>
+                                            </div>
+                                            <div class="v-card-exp">
+                                                <span>EXP</span>
+                                                <h4 id="v-card-expiry-val">12/28</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Back -->
+                                    <div class="v-card-back">
+                                        <div class="magnetic-strip"></div>
+                                        <div class="cvv-box-ui">
+                                            <div class="cvv-signature"></div>
+                                            <div class="cvv-number" id="v-card-cvv-val">***</div>
+                                        </div>
+                                        <p class="card-info-text">This card is property of Neo Bank. Authorized signature required.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-controls-grid">
+                                <div class="control-item">
+                                    <label>🔒 Security</label>
+                                    <div class="control-btns">
+                                        <button class="btn btn-secondary" id="freeze-card-btn" onclick="event.stopPropagation(); toggleFreeze(this)">
+                                            <i data-feather="lock"></i>
+                                            Freeze Card
+                                        </button>
+                                        <button class="btn btn-secondary" onclick="event.stopPropagation(); revealDetails(this)">
+                                            <i data-feather="eye"></i>
+                                            Reveal Details
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="control-item">
+                                    <label>💰 Spending Limit: <span id="limit-val">₱5,000</span></label>
+                                    <input type="range" min="1000" max="50000" value="5000" class="limit-slider" id="spending-limit-slider" oninput="updateLimitText(this.value)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="dashboard-invest-view" class="view-section hidden">
+                    <div class="card invest-card">
+                        <div class="section-header">
+                            <h3>📈 Smart Invest</h3>
+                            <p>Simulate your growth with AI-powered risk assessment.</p>
+                        </div>
+                        <div class="invest-simulation-grid">
+                            <div class="sim-input-card">
+                                <h4>Investment Simulator</h4>
+                                <div class="form-group">
+                                    <label>Amount to Invest</label>
+                                    <input type="number" id="invest-amount" placeholder="e.g. 5000" oninput="simulateInvest()">
+                                </div>
+                                <div class="form-group">
+                                    <label>Risk Tolerance</label>
+                                    <select id="invest-risk" onchange="simulateInvest()">
+                                        <option value="low">Low Risk (Conservative)</option>
+                                        <option value="medium">Medium Risk (Balanced)</option>
+                                        <option value="high">High Risk (Aggressive)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="sim-result-card">
+                                <div id="risk-badge" class="risk-badge low">Low Risk</div>
+                                <div class="sim-numbers">
+                                    <p>Estimated Growth (1 Year)</p>
+                                    <h2 id="sim-profit">₱0.00</h2>
+                                    <span id="sim-percent">+0%</span>
+                                </div>
+                                <div class="sim-recommendation">
+                                    <p id="sim-rec-text">Enter an amount to see our AI recommendation.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="dashboard-savings-view" class="view-section hidden">
+                    <div class="card savings-card">
+                        <div class="section-header-flex">
+                            <div>
+                                <h3>🎯 Savings Goals</h3>
+                                <p>Track and manage your financial milestones.</p>
+                            </div>
+                            <button class="btn btn-primary btn-sm" onclick="openAddGoalModal()">
+                                <i data-feather="plus"></i> Add New Goal
+                            </button>
+                        </div>
+
+                        <div class="savings-summary-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px;">
+                            <div class="stat-card-premium">
+                                <span class="stat-label">Total Savings</span>
+                                <span class="stat-value" id="total-savings-display">₱0.00</span>
+                            </div>
+                            <div class="stat-card-premium">
+                                <span class="stat-label">Active Goals</span>
+                                <span class="stat-value" id="active-goals-count">0</span>
+                            </div>
+                            <div class="stat-card-premium">
+                                <span class="stat-label">Completed</span>
+                                <span class="stat-value" id="completed-goals-count">0</span>
+                            </div>
+                        </div>
+
+                        <div id="goals-container" class="goals-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 40px;">
+                            <!-- Dynamic Goals Loaded Here -->
+                            <div class="empty-state">
+                                <p>You haven't set any savings goals yet.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="dashboard-support-view" class="view-section hidden">
+                    <div class="support-premium-layout">
+                        <!-- Left: FAQ Section -->
+                        <div class="faq-card-container">
+                            <div class="section-header">
+                                <h3>🆘 Frequently Asked Questions</h3>
+                                <p>Find quick answers to common banking queries.</p>
+                            </div>
+                            
+                            <div class="faq-list-premium">
+                                <div class="faq-item-card">
+                                    <div class="faq-icon">💳</div>
+                                    <div class="faq-content">
+                                        <h5>How to transfer money?</h5>
+                                        <p>Go to Payments > Send Money and enter the recipient's details.</p>
+                                    </div>
+                                </div>
+                                <div class="faq-item-card">
+                                    <div class="faq-icon">🔒</div>
+                                    <div class="faq-content">
+                                        <h5>Is my card secure?</h5>
+                                        <p>Yes, you can freeze/unfreeze your card instantly in the Cards section.</p>
+                                    </div>
+                                </div>
+                                <div class="faq-item-card">
+                                    <div class="faq-icon">📈</div>
+                                    <div class="faq-content">
+                                        <h5>How to earn interest?</h5>
+                                        <p>Check our Invest section for high-growth simulation options.</p>
+                                    </div>
+                                </div>
+                                <div class="faq-item-card">
+                                    <div class="faq-icon">📱</div>
+                                    <div class="faq-content">
+                                        <h5>Forgot my password?</h5>
+                                        <p>Contact our support team below or use the 'Forgot Password' link.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Messenger Chat Section -->
+                        <div class="chat-container-premium card">
+                            <div class="chat-header">
+                                <div class="chat-avatar-status">
+                                    <div class="chat-avatar">NS</div>
+                                    <span class="status-dot"></span>
+                                </div>
+                                <div class="chat-info">
+                                    <h5>Neo Support</h5>
+                                    <span>Typically replies in minutes</span>
+                                </div>
+                            </div>
+
+                            <div id="chat-body" class="chat-body">
+                                <div class="chat-msg bot">
+                                    <div>Hello! I'm your Neo Support assistant. How can I help you today?</div>
+                                    <small>Just now</small>
+                                </div>
+                            </div>
+
+                            <div class="chat-footer">
+                                <input type="text" id="chat-input" placeholder="Type a message..." onkeypress="if(event.key === 'Enter') sendChatMessage()">
+                                <button class="btn-chat-send" onclick="sendChatMessage()">
+                                    <i data-feather="send"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="dashboard-activity-view" class="view-section hidden">
+                    <div class="card history-card">
+                        <div class="section-header">
+                            <h3>Transaction History</h3>
+                            <p>Full list of your activities</p>
+                        </div>
+                        <div id="transaction-list-full" class="transaction-list">
+                            <!-- Dynamic -->
+                        </div>
+                    </div>
+                </div>
+
+
+            </main>
+        </div>
+
+        <!-- Admin Dashboard Layout -->
+        <div id="admin-dashboard-page" class="dashboard-layout hidden">
+            <aside class="sidebar admin-sidebar">
+                <div class="sidebar-logo">NEO<span>ADMIN</span></div>
+                <nav class="sidebar-nav">
+                    <a href="#" class="nav-item" data-page="admin-users">
+                        <i data-feather="users"></i>
+                        <span>Users Management</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="admin-requests">
+                        <i data-feather="credit-card"></i>
+                        <span>Card Requests</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="admin-transactions">
+                        <i data-feather="list"></i>
+                        <span>Transactions</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="admin-reports">
+                        <i data-feather="bar-chart-2"></i>
+                        <span>Reports</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="admin-messages">
+                        <i data-feather="message-square"></i>
+                        <span>Messages</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="admin-settings">
+                        <i data-feather="settings"></i>
+                        <span>Settings</span>
+                    </a>
+                </nav>
+                <div class="sidebar-footer">
+                    <a href="#" class="nav-item logout-nav" id="logout-btn-admin">
+                        <i data-feather="log-out"></i>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </aside>
+
+            <main class="main-content">
+                <header class="top-bar">
+                    <div class="top-bar-left">
+                        <div class="welcome-text">
+                            <h1>Admin Control Panel</h1>
+                            <p id="current-date-display-admin">System Management Overview</p>
+                        </div>
+                    </div>
+                    <div class="top-bar-right">
+                        <div class="profile-container">
+                            <div class="profile-trigger" id="profile-btn-admin">
+                                <div class="avatar-mini admin-avatar">A</div>
+                                <div class="user-info-mini">
+                                    <span class="u-name">System Administrator</span>
+                                    <span class="u-role">Full Access</span>
+                                </div>
+                                <i data-feather="chevron-down"></i>
+                            </div>
+                            <div class="profile-dropdown glass-dropdown">
+                                <a href="#" class="dropdown-item logout-item" id="dropdown-logout-admin">
+                                    <i data-feather="log-out"></i> Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Admin Views -->
+                <div id="dashboard-admin-dashboard-view" class="view-section">
+                    <div class="card">
+                        <div class="section-header">
+                            <h3>System Overview</h3>
+                            <p>Real-time platform statistics</p>
+                        </div>
+                        <div class="admin-stats-grid">
+                            <!-- Dynamic -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="dashboard-admin-users-view" class="view-section hidden">
+                    <div class="card">
+                        <div class="section-header">
+                            <h3>User Management</h3>
+                            <p>Track and manage all registered users</p>
+                        </div>
+                        <div id="admin-users-list" class="admin-users-list">
+                            <div class="loading-state">Loading users...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="dashboard-admin-requests-view" class="view-section hidden">
+                    <div class="card">
+                        <div class="section-header">
+                            <h3>Card Requests</h3>
+                            <p>Review and approve virtual card requests</p>
+                        </div>
+                        <div id="admin-card-requests-list" class="admin-requests-list">
+                            <!-- Dynamic -->
+                            <div class="empty-state">No pending requests</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="dashboard-admin-transactions-view" class="view-section hidden">
+                    <div class="card">
+                        <div class="section-header">
+                            <h3>System Transactions</h3>
+                            <p>View all transactions across the platform</p>
+                        </div>
+                        <div id="admin-transactions-list" class="activity-list">
+                            <div class="loading-state">Loading transactions...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="dashboard-admin-reports-view" class="view-section hidden">
+                    <div class="card">
+                        <div class="section-header">
+                            <h3>Analytics & Reports</h3>
+                            <p>Comprehensive system performance and growth metrics</p>
+                        </div>
+                        <div class="reports-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+                            <!-- Revenue Chart placeholder -->
+                            <div class="report-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 20px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                    <h4 style="margin: 0; font-size: 1rem; color: var(--text-primary);">Total Revenue</h4>
+                                    <span style="color: var(--accent-success); font-size: 0.85rem;">+14.5%</span>
+                                </div>
+                                <h2 style="font-size: 2rem; margin: 0 0 10px 0;">₱12,450,000</h2>
+                                <div style="height: 150px; background: linear-gradient(to top, rgba(23, 115, 234, 0.2), transparent); border-bottom: 2px solid var(--accent-primary); border-radius: 4px; display: flex; align-items: flex-end; padding: 10px; gap: 5px;">
+                                    <div style="height: 40%; width: 100%; background: var(--accent-primary); border-radius: 2px;"></div>
+                                    <div style="height: 60%; width: 100%; background: var(--accent-primary); border-radius: 2px;"></div>
+                                    <div style="height: 35%; width: 100%; background: var(--accent-primary); border-radius: 2px;"></div>
+                                    <div style="height: 80%; width: 100%; background: var(--accent-primary); border-radius: 2px;"></div>
+                                    <div style="height: 70%; width: 100%; background: var(--accent-primary); border-radius: 2px;"></div>
+                                    <div style="height: 100%; width: 100%; background: var(--accent-primary); border-radius: 2px;"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- User Growth Chart placeholder -->
+                            <div class="report-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 20px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                    <h4 style="margin: 0; font-size: 1rem; color: var(--text-primary);">User Acquisition</h4>
+                                    <span style="color: var(--accent-success); font-size: 0.85rem;">+8.2%</span>
+                                </div>
+                                <h2 style="font-size: 2rem; margin: 0 0 10px 0;">45,231</h2>
+                                <div style="height: 150px; display: flex; align-items: flex-end; padding: 10px; gap: 8px;">
+                                    <div style="height: 30%; width: 100%; background: var(--accent-secondary); border-radius: 4px 4px 0 0;"></div>
+                                    <div style="height: 45%; width: 100%; background: var(--accent-secondary); border-radius: 4px 4px 0 0;"></div>
+                                    <div style="height: 60%; width: 100%; background: var(--accent-secondary); border-radius: 4px 4px 0 0;"></div>
+                                    <div style="height: 50%; width: 100%; background: var(--accent-secondary); border-radius: 4px 4px 0 0;"></div>
+                                    <div style="height: 85%; width: 100%; background: var(--accent-secondary); border-radius: 4px 4px 0 0;"></div>
+                                    <div style="height: 100%; width: 100%; background: var(--accent-secondary); border-radius: 4px 4px 0 0;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="reports-detailed" style="margin-top: 20px;">
+                            <h4 style="margin-bottom: 15px; color: var(--text-primary);">Transaction Breakdown</h4>
+                            <div style="background: rgba(255,255,255,0.02); border-radius: 8px; overflow: hidden;">
+                                <div style="display: flex; justify-content: space-between; padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                    <div style="display: flex; align-items: center; gap: 10px;"><i data-feather="arrow-up-right" style="color: var(--accent-success);"></i> <span>Deposits</span></div>
+                                    <div style="font-weight: 600;">₱8,200,000 (45%)</div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                    <div style="display: flex; align-items: center; gap: 10px;"><i data-feather="arrow-down-left" style="color: var(--accent-danger);"></i> <span>Withdrawals</span></div>
+                                    <div style="font-weight: 600;">₱3,450,000 (25%)</div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                    <div style="display: flex; align-items: center; gap: 10px;"><i data-feather="repeat" style="color: var(--accent-warning);"></i> <span>Transfers</span></div>
+                                    <div style="font-weight: 600;">₱2,100,000 (15%)</div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; padding: 15px;">
+                                    <div style="display: flex; align-items: center; gap: 10px;"><i data-feather="credit-card" style="color: var(--accent-primary);"></i> <span>Bill Payments</span></div>
+                                    <div style="font-weight: 600;">₱1,500,000 (15%)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 20px; display: flex; gap: 10px;">
+                            <button class="btn btn-primary" onclick="downloadPDFReport()"><i data-feather="download"></i> Download Full Report (PDF)</button>
+                            <button class="btn btn-secondary" onclick="exportCSVReport()"><i data-feather="file-text"></i> Export CSV</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="dashboard-admin-settings-view" class="view-section hidden">
+                    <div class="card">
+                        <div class="section-header">
+                            <h3>Admin Settings</h3>
+                            <p>Manage system configuration, security, and access controls</p>
+                        </div>
+                        
+                        <div class="settings-grid" style="display: grid; grid-template-columns: 250px 1fr; gap: 30px; margin-top: 20px;">
+                            <div class="settings-sidebar" style="display: flex; flex-direction: column; gap: 10px; border-right: 1px solid rgba(255,255,255,0.05); padding-right: 20px;">
+                                <a href="#" class="nav-item active" style="padding: 10px 15px; background: rgba(23, 115, 234, 0.1); color: var(--accent-primary); border-radius: 8px; display: flex; gap: 10px; align-items: center;"><i data-feather="shield"></i> Security</a>
+                            </div>
+
+                            <div class="settings-content">
+                                <h4 style="margin-bottom: 20px; font-size: 1.2rem; display: flex; align-items: center; gap: 10px;"><i data-feather="shield"></i> Security Settings</h4>
+                                
+                                <div class="form-group" style="margin-bottom: 25px;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.02); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+                                        <div>
+                                            <h5 style="margin: 0 0 5px 0; font-size: 1rem;">Two-Factor Authentication (2FA)</h5>
+                                            <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem;">Require admins to use 2FA when logging in.</p>
+                                        </div>
+                                        <label class="switch" style="position: relative; display: inline-block; width: 50px; height: 24px;">
+                                            <input type="checkbox" checked style="opacity: 0; width: 0; height: 0;">
+                                            <span class="slider round" style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--accent-primary); border-radius: 34px; transition: .4s;">
+                                                <span style="position: absolute; content: ''; height: 16px; width: 16px; left: 30px; bottom: 4px; background-color: white; border-radius: 50%; transition: .4s;"></span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" style="margin-bottom: 25px;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.02); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+                                        <div>
+                                            <h5 style="margin: 0 0 5px 0; font-size: 1rem;">Session Timeout</h5>
+                                            <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem;">Automatically log out inactive administrators.</p>
+                                        </div>
+                                        <select style="background: var(--bg-card); color: var(--text-primary); border: 1px solid rgba(255,255,255,0.1); padding: 8px 12px; border-radius: 6px;">
+                                            <option value="15">15 Minutes</option>
+                                            <option value="30" selected>30 Minutes</option>
+                                            <option value="60">1 Hour</option>
+                                            <option value="never">Never</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" style="margin-bottom: 25px;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.02); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+                                        <div>
+                                            <h5 style="margin: 0 0 5px 0; font-size: 1rem;">IP Whitelisting</h5>
+                                            <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem;">Restrict admin access to specific IP addresses.</p>
+                                        </div>
+                                        <button class="btn btn-secondary btn-sm" onclick="openIPWhitelistModal()">Configure</button>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px;">
+                                    <h5 style="margin: 0 0 15px 0; font-size: 1rem;">Change Admin Master Password</h5>
+                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                                        <div class="password-group">
+                                            <input type="password" id="admin-current-pass" placeholder="Current Password" style="width: 100%; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); padding: 10px 15px; border-radius: 6px; color: var(--text-primary);">
+                                            <div class="form-check" style="margin-top: 5px;">
+                                                <input type="checkbox" id="show-admin-current-pass" onchange="togglePassword('admin-current-pass')">
+                                                <label for="show-admin-current-pass" style="font-size: 0.8rem; color: var(--text-secondary);">Show Password</label>
+                                            </div>
+                                        </div>
+                                        <div class="password-group">
+                                            <input type="password" id="admin-new-pass" placeholder="New Password" style="width: 100%; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); padding: 10px 15px; border-radius: 6px; color: var(--text-primary);">
+                                            <div class="form-check" style="margin-top: 5px;">
+                                                <input type="checkbox" id="show-admin-new-pass" onchange="togglePassword('admin-new-pass')">
+                                                <label for="show-admin-new-pass" style="font-size: 0.8rem; color: var(--text-secondary);">Show Password</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary" style="margin-top: 15px;" onclick="requestAdminPasswordChange()">Update Password</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Admin Messages View -->
+                <div id="dashboard-admin-messages-view" class="view-section hidden">
+                    <div class="section-header">
+                        <h2>Conversations</h2>
+                        <p>Manage and reply to user messages in real-time</p>
+                    </div>
+                    
+                    <div class="admin-chat-layout">
+                        <!-- Sidebar: List of User Conversations -->
+                        <div id="admin-chat-sidebar" class="admin-chat-sidebar">
+                            <!-- Populated via JS -->
+                            <div class="empty-msg" style="padding: 20px; text-align: center; color: var(--text-secondary);">
+                                Loading conversations...
+                            </div>
+                        </div>
+
+                        <!-- Main: Chat Window -->
+                        <div class="admin-chat-main">
+                            <div id="admin-chat-header" class="chat-header" style="background: rgba(255,255,255,0.03);">
+                                <div class="chat-info">
+                                    <h5 id="active-chat-user">Select a conversation</h5>
+                                    <span id="active-chat-status">No active chat</span>
+                                </div>
+                            </div>
+
+                            <div id="admin-chat-body" class="chat-body" style="background: transparent; height: 400px;">
+                                <div class="empty-msg" style="height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-secondary);">
+                                    Select a user from the left to start chatting
+                                </div>
+                            </div>
+
+                            <div class="chat-footer">
+                                <input type="text" id="admin-chat-input" placeholder="Type a message..." disabled onkeypress="if(event.key === 'Enter') sendAdminReply()">
+                                <button class="btn-chat-send" id="admin-chat-send-btn" disabled onclick="sendAdminReply()">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+
+        <!-- User Details Modal -->
+        <div id="user-details-modal" class="modal-overlay hidden">
+            <div class="modal" style="max-width: 500px;">
+                <div class="alert-icon" style="color: var(--primary);"><i data-feather="user"></i></div>
+                <h3>User Details</h3>
+                <p class="modal-subtitle">Full information for the selected user</p>
+                <div id="user-details-content" style="text-align: left; margin: 20px 0;">
+                    <!-- Populated via JS -->
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-secondary btn-full" onclick="document.getElementById('user-details-modal').classList.add('hidden')">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Alert Modal -->
+        <div id="system-alert-modal" class="modal-overlay hidden">
+            <div class="modal system-alert">
+                <div class="alert-icon" id="alert-icon">🔔</div>
+                <h3 id="alert-title">System Message</h3>
+                <p id="alert-message">This is a system notification.</p>
+                <div class="modal-actions">
+                    <button class="btn btn-primary" id="alert-ok-btn">OK</button>
+                    <button class="btn btn-danger hidden" id="alert-cancel-btn">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Reply Modal -->
+        <div id="admin-reply-modal" class="modal-overlay hidden">
+            <div class="modal system-alert" style="max-width: 500px;">
+                <div class="alert-icon" style="color: var(--primary);"><i data-feather="message-square"></i></div>
+                <h3>Reply to Message</h3>
+                <div style="text-align: left; margin: 20px 0; background: rgba(255,255,255,0.02); padding: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05);">
+                    <small style="color: var(--text-secondary); display: block; margin-bottom: 5px;">Original Message from <span id="reply-user-name" style="color: var(--primary); font-weight: 600;">User</span>:</small>
+                    <p id="reply-original-msg" style="font-style: italic; font-size: 0.9rem; margin: 0; line-height: 1.4;">"Hello there..."</p>
+                </div>
+                <div class="form-group" style="text-align: left; margin-bottom: 20px;">
+                    <label>Your Reply</label>
+                    <textarea id="admin-reply-text" placeholder="Type your response here..." style="width: 100%; min-height: 100px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: var(--text-primary); padding: 12px; resize: vertical; font-family: inherit;"></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-secondary" onclick="document.getElementById('admin-reply-modal').classList.add('hidden')">Cancel</button>
+                    <button class="btn btn-primary" id="admin-reply-submit-btn">Send Reply</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Password Modal -->
+        <div id="admin-password-modal" class="modal-overlay hidden">
+            <div class="modal system-alert">
+                <div class="alert-icon" style="color: var(--accent-primary);"><i data-feather="lock"></i></div>
+                <h3>Admin Verification</h3>
+                <p>Please enter the admin password to access the settings panel.</p>
+                <div class="form-group" style="text-align: left; margin: 20px 0;">
+                    <label>Password</label>
+                    <input type="password" id="admin-auth-password" placeholder="••••••••">
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-primary" id="admin-auth-submit">Verify</button>
+                    <button class="btn btn-danger" id="admin-auth-cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- IP Whitelist Modal -->
+        <div id="ip-whitelist-modal" class="modal-overlay hidden">
+            <div class="modal">
+                <h3>IP Whitelisting</h3>
+                <p class="modal-subtitle" style="color: var(--text-secondary); margin-bottom: 20px;">Manage allowed IP addresses for Admin access</p>
+                
+                <div class="form-group" style="text-align: left;">
+                    <label>Add New IP Address</label>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" id="new-ip-input" placeholder="e.g. 192.168.1.1" style="flex: 1;">
+                        <button class="btn btn-primary" onclick="addIPWhitelist()">Add</button>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 25px; text-align: left;">
+                    <h5 style="margin-bottom: 10px; color: var(--text-secondary); font-size: 0.9rem;">Allowed IP Addresses</h5>
+                    <div id="ip-list-container" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; max-height: 200px; overflow-y: auto;">
+                        <div style="display: flex; justify-content: space-between; padding: 12px 15px; border-bottom: 1px solid rgba(255,255,255,0.05); align-items: center;">
+                            <div>
+                                <span style="display: block; font-weight: 500;">192.168.1.100</span>
+                                <span style="font-size: 0.75rem; color: var(--accent-success);">Current Session</span>
+                            </div>
+                            <button class="btn-icon btn-sm" disabled style="opacity: 0.5; cursor: not-allowed;"><i data-feather="lock"></i></button>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 12px 15px; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05);" id="ip-row-1">
+                            <span style="font-weight: 500;">203.0.113.42</span>
+                            <button class="btn-icon danger btn-sm" onclick="removeIPWhitelist('ip-row-1')"><i data-feather="trash-2"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-actions" style="margin-top: 30px;">
+                    <button class="btn btn-secondary btn-full" onclick="closeIPWhitelistModal()">Done</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Password Validation Modal -->
+        <div id="user-password-modal" class="modal-overlay hidden">
+            <div class="modal">
+                <h3>Security Check</h3>
+                <p class="modal-subtitle">Please enter your password to continue</p>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="user-action-password" placeholder="Enter your password">
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-secondary" id="user-password-cancel">Cancel</button>
+                    <button class="btn btn-primary" id="user-password-submit">Confirm</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Goal Modal -->
+        <div id="goal-modal" class="modal-overlay hidden">
+            <div class="modal">
+                <h3>Set New Savings Goal</h3>
+                <p class="modal-subtitle">What are you saving for?</p>
+                <div class="form-group">
+                    <label>Goal Name</label>
+                    <input type="text" id="goal-name-input" placeholder="e.g. New Car Fund, Travel">
+                </div>
+                <div class="form-group">
+                    <label>Target Amount (₱)</label>
+                    <input type="number" id="goal-target-input" placeholder="0.00">
+                </div>
+                <div class="form-group">
+                    <label>Initial Deposit (₱)</label>
+                    <input type="number" id="goal-initial-input" placeholder="0.00">
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-secondary" onclick="document.getElementById('goal-modal').classList.add('hidden')">Cancel</button>
+                    <button class="btn btn-primary" onclick="createNewGoal()">Create Goal</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Funds to Goal Modal -->
+        <div id="add-funds-modal" class="modal-overlay hidden">
+            <div class="modal">
+                <h3>Add Funds to Goal</h3>
+                <p class="modal-subtitle">Transfer from your main balance</p>
+                <div class="form-group">
+                    <label>Amount (₱)</label>
+                    <input type="number" id="add-funds-input" placeholder="0.00">
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-secondary" onclick="document.getElementById('add-funds-modal').classList.add('hidden')">Cancel</button>
+                    <button class="btn btn-primary" id="confirm-add-funds-btn">Confirm Transfer</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modals -->
+        <div id="modal-overlay" class="modal-overlay hidden">
+            <div class="modal">
+                <h3 id="modal-title">Transaction</h3>
+                <p class="modal-subtitle" id="modal-subtitle">Enter details to continue</p>
+                <div id="modal-content">
+                    <div id="biller-field" class="form-group hidden">
+                        <label>Select Biller</label>
+                        <select id="biller-select">
+                            <option value="electricity">Meralco (Electricity)</option>
+                            <option value="water">Maynilad (Water)</option>
+                            <option value="internet">PLDT/Globe (Internet)</option>
+                            <option value="credit-card">Credit Card</option>
+                            <option value="government">SSS/Pag-IBIG</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Amount</label>
+                        <input type="number" id="amount-input" placeholder="0.00">
+                    </div>
+                    <div id="transfer-field" class="form-group hidden">
+                        <label id="recipient-label">Recipient Email or Phone Number</label>
+                        <input type="text" id="recipient-input" placeholder="e.g. leslie@gmail.com or 09123456789">
+                    </div>
+                    <div id="withdraw-field" class="form-group hidden">
+                        <label>Withdraw To</label>
+                        <select id="withdraw-method">
+                            <option value="gcash">GCash</option>
+                            <option value="paymaya">Maya</option>
+                            <option value="bdo">BDO Unibank</option>
+                            <option value="bpi">BPI</option>
+                            <option value="landbank">Landbank</option>
+                            <option value="unionbank">UnionBank</option>
+                        </select>
+                        <label style="margin-top: 10px;">Account Number / Phone</label>
+                        <input type="text" id="withdraw-account" placeholder="Enter details">
+                    </div>
+                    <div class="form-group" style="margin-top: 15px;">
+                        <label>Confirm Password</label>
+                        <input type="password" id="transaction-password" placeholder="Enter your password to confirm">
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-primary" id="confirm-btn">Confirm Transaction</button>
+                    <button class="btn btn-danger" id="cancel-btn">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="notification-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+{
+  "users": [
+    {
+      "id": "admin-id",
+      "name": "Neo Admin",
+      "email": "admin@neobank.com",
+      "passwordHash": "$2b$10$fn0EnGVv1bPrFqJAuaqHLeeSDHKBJ5VCBJyf0cF3lzJmAbvNIeUEa",
+      "balance": 1000000,
+      "hasCard": true,
+      "cardDetails": {
+        "number": "4532 7812 9901 8888",
+        "expiry": "12/28",
+        "cvv": "123"
+      },
+      "transactions": [
+        {
+          "id": "tx-1",
+          "type": "Deposit",
+          "amount": 1000000,
+          "date": "2026-04-29T01:49:06.248Z",
+          "description": "Initial Balance"
+        }
+      ]
+    },
+    {
+      "id": "exjp149k6",
+      "name": "Leslie Cantorna",
+      "email": "leslie@gmail.com",
+      "phoneNumber": "09292171317",
+      "passwordHash": "$2b$10$SRZ/JsLNVeITt9Gpwqp6/.nLI6bujrvj3XuTPKIupjgpzzrSxmmF.",
+      "balance": 85000,
+      "transactions": [
+        {
+          "id": "5y0c6b43p",
+          "type": "Deposit",
+          "amount": 10000,
+          "date": "2026-04-29T04:17:33.468Z",
+          "description": "Received from gessa@gmail.com"
+        },
+        {
+          "id": "4ggc36lk3",
+          "type": "Transfer",
+          "amount": 5000,
+          "date": "2026-04-29T02:17:52.075Z",
+          "description": "Transfer to gessa@gmail.com",
+          "to": "gessa@gmail.com"
+        },
+        {
+          "id": "yhrjoq4cv",
+          "type": "Deposit",
+          "amount": 10000,
+          "date": "2026-04-29T02:11:29.821Z",
+          "description": "Received from gessa@gmail.com"
+        },
+        {
+          "id": "zbnmen70p",
+          "type": "Deposit",
+          "amount": 70000,
+          "date": "2026-04-29T02:07:36.042Z",
+          "description": "Cash Deposit"
+        }
+      ],
+      "hasCard": true,
+      "notifications": [
+        {
+          "id": "it6rb915h",
+          "message": "You received ₱10,000.00 from gessa@gmail.com",
+          "date": "2026-04-29T04:17:34.150Z",
+          "read": false
+        },
+        {
+          "id": "j06n2opli",
+          "message": "You sent ₱5,000.00 to gessa@gmail.com",
+          "date": "2026-04-29T02:17:52.210Z",
+          "read": false
+        }
+      ],
+      "cardDetails": {
+        "number": "1874 4553 9481 3955",
+        "expiry": "12/28",
+        "cvv": "485"
+      }
+    },
+    {
+      "id": "bgkn6eou0",
+      "name": "Gessa Cabugao",
+      "email": "gessa@gmail.com",
+      "phoneNumber": "09931715789",
+      "passwordHash": "$2b$10$xvyKFitlTEvF6bqJJXUkt.7EPLzRP9SqacVvY.g9z/iI.IWFdz2oq",
+      "balance": 9984489,
+      "transactions": [
+        {
+          "id": "5ayhjqum9",
+          "type": "Bill",
+          "amount": 511,
+          "date": "2026-04-29T08:27:55.274Z",
+          "description": "Bill Payment: internet"
+        },
+        {
+          "id": "5y0c6b43p",
+          "type": "Transfer",
+          "amount": 10000,
+          "date": "2026-04-29T04:17:33.468Z",
+          "description": "Transfer to leslie@gmail.com",
+          "to": "leslie@gmail.com"
+        },
+        {
+          "id": "4ggc36lk3",
+          "type": "Deposit",
+          "amount": 5000,
+          "date": "2026-04-29T02:17:52.075Z",
+          "description": "Received from leslie@gmail.com"
+        },
+        {
+          "id": "yhrjoq4cv",
+          "type": "Transfer",
+          "amount": 10000,
+          "date": "2026-04-29T02:11:29.821Z",
+          "description": "Transfer to leslie@gmail.com",
+          "to": "leslie@gmail.com"
+        },
+        {
+          "id": "ggrhijqge",
+          "type": "Deposit",
+          "amount": 10000000,
+          "date": "2026-04-29T02:11:10.338Z",
+          "description": "Cash Deposit"
+        }
+      ],
+      "hasCard": true,
+      "notifications": [
+        {
+          "id": "xavt3esfl",
+          "message": "You sent ₱10,000.00 to leslie@gmail.com",
+          "date": "2026-04-29T04:17:34.154Z",
+          "read": false
+        },
+        {
+          "id": "fygdsww5i",
+          "message": "You received ₱5,000.00 from leslie@gmail.com",
+          "date": "2026-04-29T02:17:52.210Z",
+          "read": false
+        }
+      ],
+      "cardDetails": {
+        "number": "8092 8444 9375 1062",
+        "expiry": "12/28",
+        "cvv": "531"
+      }
+    },
+    {
+      "id": "etihie6j6",
+      "name": "Pauline Espiritu",
+      "email": "paulineespiritu8@gmail.com",
+      "phoneNumber": "09928362981",
+      "passwordHash": "$2b$10$UA9gQNa.rfCFadhJFdlUxeA7rR7F5COgofzCuwjREVAWaG41twAxq",
+      "balance": 0,
+      "transactions": [],
+      "hasCard": false
+    }
+  ],
+  "cardRequests": [
+    {
+      "id": "k28azziwg",
+      "userId": "bgkn6eou0",
+      "userName": "Gessa Cabugao",
+      "userEmail": "gessa@gmail.com",
+      "status": "approved",
+      "date": "2026-04-29T02:20:40.296Z"
+    },
+    {
+      "id": "0hlfv39au",
+      "userId": "exjp149k6",
+      "userName": "Leslie Cantorna",
+      "userEmail": "leslie@gmail.com",
+      "status": "approved",
+      "date": "2026-05-03T11:05:17.556Z"
+    }
+  ],
+  "contactMessages": [
+    {
+      "id": "kntwgl7w9",
+      "name": "Dominic Libao",
+      "email": "libao@gmail.com",
+      "message": "help me to deposit",
+      "date": "2026-04-29T04:15:37.329Z",
+      "status": "read"
+    },
+    {
+      "id": "l92qj5egu",
+      "name": "Gio Zamora",
+      "email": "giozamora@gmail.com",
+      "message": "how to deposit",
+      "date": "2026-04-29T04:21:13.307Z",
+      "status": "read"
+    },
+    {
+      "id": "ibpdn70v9",
+      "userId": "bgkn6eou0",
+      "name": "Gessa Cabugao",
+      "email": "gessa@gmail.com",
+      "message": "hello",
+      "date": "2026-04-30T11:59:17.448Z",
+      "status": "replied",
+      "replies": [
+        {
+          "sender": "admin",
+          "message": "what's wrong?",
+          "date": "2026-04-30T12:02:14.232Z"
+        }
+      ]
+    },
+    {
+      "id": "flpxim65u",
+      "userId": "bgkn6eou0",
+      "name": "Gessa Cabugao",
+      "email": "gessa@gmail.com",
+      "message": "hello",
+      "date": "2026-04-30T12:06:24.966Z",
+      "status": "read",
+      "replies": []
+    },
+    {
+      "id": "ntiryrcyk",
+      "userId": "exjp149k6",
+      "name": "Leslie Cantorna",
+      "email": "leslie@gmail.com",
+      "message": "hello",
+      "date": "2026-05-03T11:05:36.351Z",
+      "status": "read",
+      "replies": []
+    }
+  ]
+}
