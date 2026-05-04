@@ -46,9 +46,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '../../frontend')));
 
 // Handle SPA routing - send index.html for any unknown routes
-// Serve frontend index.html for any non-API routes.
-// Using a regex route avoids path-to-regexp parsing issues with a bare '*'.
-app.get(/^(?!\/api).*$/, (req, res) => {
+app.get(/^(?!\/api).*$/, (req: any, res: any) => {
   res.sendFile(path.join(__dirname, '../../frontend/index.html'));
 });
 
