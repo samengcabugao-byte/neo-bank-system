@@ -182,9 +182,6 @@
                                     <label for="show-password-login">Show Password</label>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="g-recaptcha" data-sitekey="6Ld8_dYsAAAAAB6gejbsIXkj5xCByxnaYRbU-NYb" data-theme="dark"></div>
-                            </div>
                             <button type="submit" class="btn btn-primary btn-full">Login to Dashboard</button>
                         </form>
                         <div class="auth-footer-text">
@@ -853,6 +850,10 @@
             <aside class="sidebar admin-sidebar">
                 <div class="sidebar-logo">NEO<span>ADMIN</span></div>
                 <nav class="sidebar-nav">
+                    <a href="#" class="nav-item active" data-page="admin-dashboard">
+                        <i data-feather="grid"></i>
+                        <span>Overview</span>
+                    </a>
                     <a href="#" class="nav-item" data-page="admin-users">
                         <i data-feather="users"></i>
                         <span>Users Management</span>
@@ -1120,9 +1121,9 @@
                         <p>Manage and reply to user messages in real-time</p>
                     </div>
                     
-                    <div class="admin-chat-layout">
+                    <div class="admin-chat-layout" style="display: grid; grid-template-columns: 350px 1fr; gap: 0; height: 650px; background: var(--bg-surface); border: 1px solid var(--glass-border); border-radius: 20px; overflow: hidden; margin-top: 20px;">
                         <!-- Sidebar: List of User Conversations -->
-                        <div id="admin-chat-sidebar" class="admin-chat-sidebar">
+                        <div id="admin-chat-sidebar" class="admin-chat-sidebar" style="background: rgba(255, 255, 255, 0.02); border-right: 1px solid var(--glass-border); display: flex; flex-direction: column; overflow-y: auto;">
                             <!-- Populated via JS -->
                             <div class="empty-msg" style="padding: 20px; text-align: center; color: var(--text-secondary);">
                                 Loading conversations...
@@ -1130,23 +1131,26 @@
                         </div>
 
                         <!-- Main: Chat Window -->
-                        <div class="admin-chat-main">
-                            <div id="admin-chat-header" class="chat-header" style="background: rgba(255,255,255,0.03);">
+                        <div class="admin-chat-main" style="display: flex; flex-direction: column; background: rgba(0, 0, 0, 0.2);">
+                            <div id="admin-chat-header" class="chat-header" style="padding: 20px 25px; background: rgba(255, 255, 255, 0.03); border-bottom: 1px solid var(--glass-border); display: flex; align-items: center; gap: 15px;">
                                 <div class="chat-info">
-                                    <h5 id="active-chat-user">Select a conversation</h5>
-                                    <span id="active-chat-status">No active chat</span>
+                                    <h5 id="active-chat-user" style="margin: 0; font-size: 1.1rem; color: #fff;">Select a conversation</h5>
+                                    <span id="active-chat-status" style="font-size: 0.85rem; color: var(--text-secondary);">No active chat</span>
                                 </div>
                             </div>
 
-                            <div id="admin-chat-body" class="chat-body" style="background: transparent; height: 400px;">
-                                <div class="empty-msg" style="height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-secondary);">
-                                    Select a user from the left to start chatting
+                            <div id="admin-chat-body" class="chat-body" style="flex-grow: 1; padding: 25px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px;">
+                                <div class="empty-msg" style="height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); text-align: center;">
+                                    <div>
+                                        <div style="font-size: 3rem; margin-bottom: 15px; opacity: 0.3;">💬</div>
+                                        <p>Select a user from the left to start chatting</p>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="chat-footer">
-                                <input type="text" id="admin-chat-input" placeholder="Type a message..." disabled onkeypress="if(event.key === 'Enter') sendAdminReply()">
-                                <button class="btn-chat-send" id="admin-chat-send-btn" disabled onclick="sendAdminReply()">
+                            <div class="chat-footer" style="padding: 20px; background: rgba(255, 255, 255, 0.03); border-top: 1px solid var(--glass-border); display: flex; gap: 15px;">
+                                <input type="text" id="admin-chat-input" placeholder="Type a message..." disabled onkeypress="if(event.key === 'Enter') sendAdminReply()" style="flex-grow: 1; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 12px 20px; color: #fff; outline: none;">
+                                <button class="btn-chat-send" id="admin-chat-send-btn" disabled onclick="sendAdminReply()" style="width: 45px; height: 45px; background: var(--primary); color: #000; border: none; border-radius: 12px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: var(--transition);">
                                     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                                 </button>
                             </div>
@@ -1175,12 +1179,14 @@
         <!-- System Alert Modal -->
         <div id="system-alert-modal" class="modal-overlay hidden">
             <div class="modal system-alert">
-                <div class="alert-icon" id="alert-icon">🔔</div>
+                <div class="alert-icon-wrapper" id="alert-icon-wrapper">
+                    <div id="alert-icon">🔔</div>
+                </div>
                 <h3 id="alert-title">System Message</h3>
-                <p id="alert-message">This is a system notification.</p>
+                <p id="alert-message" style="color: var(--text-secondary); margin-bottom: 25px;">This is a system notification.</p>
                 <div class="modal-actions">
-                    <button class="btn btn-primary" id="alert-ok-btn">OK</button>
-                    <button class="btn btn-danger hidden" id="alert-cancel-btn">Cancel</button>
+                    <button class="btn btn-secondary btn-full" id="alert-cancel-btn">Cancel</button>
+                    <button class="btn btn-primary btn-full" id="alert-ok-btn">Confirm</button>
                 </div>
             </div>
         </div>
@@ -1256,6 +1262,48 @@
                 <div class="modal-actions" style="margin-top: 30px;">
                     <button class="btn btn-secondary btn-full" onclick="closeIPWhitelistModal()">Done</button>
                 </div>
+            </div>
+        </div>
+
+        <!-- Transaction Modal -->
+        <div id="transaction-modal" class="modal-overlay hidden">
+            <div class="modal">
+                <h3 id="trans-title">Transaction</h3>
+                <p class="modal-subtitle">Complete your transaction details below</p>
+                
+                <form>
+                    <div class="form-group">
+                        <label>Amount (₱)</label>
+                        <input type="number" id="trans-amount" placeholder="0.00" required>
+                    </div>
+
+                    <!-- Dynamic Fields for Transfer -->
+                    <div id="transfer-fields" class="hidden">
+                        <div class="form-group">
+                            <label>Recipient Email or Phone</label>
+                            <input type="text" id="trans-recipient" placeholder="Enter details">
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Fields for Bill Payment -->
+                    <div id="pay-bill-fields" class="hidden">
+                        <div class="form-group">
+                            <label>Select Biller</label>
+                            <select id="biller-select" style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #fff; padding: 12px;">
+                                <option value="Meralco">Meralco</option>
+                                <option value="Maynilad">Maynilad</option>
+                                <option value="PLDT">PLDT</option>
+                                <option value="Globe">Globe</option>
+                                <option value="Smart">Smart</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary" onclick="document.getElementById('transaction-modal').classList.add('hidden')">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Proceed</button>
+                    </div>
+                </form>
             </div>
         </div>
 

@@ -28,8 +28,15 @@
       "email": "leslie@gmail.com",
       "phoneNumber": "09292171317",
       "passwordHash": "$2b$10$SRZ/JsLNVeITt9Gpwqp6/.nLI6bujrvj3XuTPKIupjgpzzrSxmmF.",
-      "balance": 85000,
+      "balance": 90000,
       "transactions": [
+        {
+          "id": "zevddy9sz",
+          "type": "Deposit",
+          "amount": 5000,
+          "date": "2026-05-04T16:21:39.687Z",
+          "description": "Cash Deposit"
+        },
         {
           "id": "5y0c6b43p",
           "type": "Deposit",
@@ -154,6 +161,16 @@
       "email": "paulineespiritu8@gmail.com",
       "phoneNumber": "09928362981",
       "passwordHash": "$2b$10$UA9gQNa.rfCFadhJFdlUxeA7rR7F5COgofzCuwjREVAWaG41twAxq",
+      "balance": 0,
+      "transactions": [],
+      "hasCard": false
+    },
+    {
+      "id": "hrsyh12h3",
+      "name": "Test User",
+      "email": "test@example.com",
+      "phoneNumber": "09123456789",
+      "passwordHash": "$2b$10$8HgogXk5qf/nx3fpGnqrDeJvDQhBO7RaV2yqnRhFiArlKwm/kqmGW",
       "balance": 0,
       "transactions": [],
       "hasCard": false
